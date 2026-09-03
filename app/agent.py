@@ -1,8 +1,12 @@
 import json
+import httpx
 from groq import Groq
 from app.config import GROQ_API_KEY, GROQ_MODEL
 
-client = Groq(api_key=GROQ_API_KEY)
+client = Groq(
+    api_key=GROQ_API_KEY,
+    http_client=httpx.Client(),
+)
 
 SYSTEM_PROMPT = """You are a travel-planning reasoning agent.
 You are given:
