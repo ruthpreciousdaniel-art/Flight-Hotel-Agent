@@ -35,7 +35,6 @@ except json.JSONDecodeError as e:
         f"DEBUG: First 100 characters of {var_name}: {raw[:100]!r}",
         flush=True,
     )
-    # Allow path-to-file fallback for local development
     if os.path.exists(raw):
         with open(raw, "r") as f:
             return json.load(f)
